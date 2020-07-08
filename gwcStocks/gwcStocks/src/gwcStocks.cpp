@@ -1,13 +1,14 @@
 #include "gepch.h"
-#include <curl/curl.h>
+#include "Core/URLData.h"
 const char* Finnhub_APIKey = "bs2omovrh5r9f6apl86g";
+
 
 
 int main()
 {	
-	auto curl = curl_easy_init();
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string result = url->CurlURL("https://finnhub.io/api/v1/stock/symbol?exchange=L&token=bs2omovrh5r9f6apl86g");
 
-	if (curl)
-		std::cout << curl << std::endl;
+	std::cout << result << std::endl;
 	return 0;
 }

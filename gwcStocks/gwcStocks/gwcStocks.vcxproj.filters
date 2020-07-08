@@ -42,6 +42,9 @@
     <ClInclude Include="src\Core\Core.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\URLData.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\StockObjects\Symbol.h">
       <Filter>src\StockObjects</Filter>
     </ClInclude>
@@ -518,6 +521,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\URLData.cpp">
+      <Filter>src\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\StockObjects\Symbol.cpp">
       <Filter>src\StockObjects</Filter>
     </ClCompile>
