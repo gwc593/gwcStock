@@ -11,15 +11,12 @@ workspace "gwcStocks"
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
---IncludeDir["GLFW"] = "gwcEngine/vendor/GLFW/include"
-
-
---include "gwcEngine/vendor/GLFW"
+IncludeDir["curl"] = "gwcStocks/vendor/curl/include"
 
 project "gwcStocks"
 
 	location"gwcStocks"
-	kind "StaticLib"
+	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
@@ -34,19 +31,19 @@ project "gwcStocks"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-
+		"%{prj.name}/vendor/curl/include/**.h",
+		"%{prj.name}/vendor/curl/lib/**.h"
 	}
 
-	includedirs
+	libdirs
 	{
-		"%{prj.name}/src"
---		"%{IncludeDir.GLFW}",
-
+		"gwcStocks/vendor/curl/lib"
 	}
 	
-	links
+	includedirs
 	{
-
+		"%{prj.name}/src",
+		"%{IncludeDir.curl}"
 	}
 
 	filter "system:windows"
@@ -62,13 +59,25 @@ project "gwcStocks"
 		defines {}
 		runtime "Debug"
 		symbols "on"
+		links
+		{
+			"libcurl-d"
+		}
 
 	filter "configurations:Release"
 		defines {}
 		runtime "Release"
 		optimize "on"
+		links
+		{
+			"libcurl"
+		}
 
 	filter "configurations:Dist"
 		defines {}
 		runtime "Release"
 		optimize "on"
+		links
+		{
+			"libcurl"
+		}
