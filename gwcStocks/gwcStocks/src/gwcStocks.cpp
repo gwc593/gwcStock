@@ -1,6 +1,9 @@
 #include "gepch.h"
 #include "Core/URLData.h"
 
+//note large volume historic price data at https://uk.finance.yahoo.com/quote/AAPL/history?period1=0&period2=1595635200&interval=1d&filter=history&frequency=1m
+//need to make API for this...
+
 
 std::string getStockDataJson(const char* dataRef, const char* symbol)
 {
