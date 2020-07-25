@@ -1,17 +1,16 @@
-workspace "FinnHub"
+	workspace "FinnHub"
 	architecture "x64"
-	
+	outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	configurations
 	{
 		"Debug",
 		"Release",
 		"Dist"
 	}
-
-outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-
-IncludeDir = {}
-IncludeDir["curl"] = "FinnHub/vendor/curl/include"
+	
+	startproject "TestApplication"
+	IncludeDir = {}
+	IncludeDir["curl"] = "FinnHub/vendor/curl/include"
 
 project "FinnHub"
 
@@ -81,8 +80,10 @@ project "FinnHub"
 		{
 			"libcurl"
 		}
-		
-	project "TestApplication"
+	
+	
+	
+project "TestApplication"
 	location"TestApplication"
 	kind "ConsoleApp"
 	
@@ -133,3 +134,11 @@ project "FinnHub"
 		runtime "Release"
 		optimize "on"
 
+
+
+
+
+
+
+
+		

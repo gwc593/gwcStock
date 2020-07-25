@@ -1,9 +1,14 @@
-#include<FinnHub/FinnHub.h>
+#include<FinnHub.h>
 
 #include<iostream>
 int main()
 {
-	FinnHub* dataExchange = FinnHub::Get();
+	FinnHubAPI dataExchange("bse5d8frh5rea8raakb0");
 
-	std::cout << "AAPL: " << dataExchange->GetQuote("AAPL") << std::endl;
+	std::string candleJSON = dataExchange.GetQuote("AAPL");
+
+	FinnHub::Candle myCandle;
+	myCandle.Deserialise(candleJSON);
+
+	std::cout << "AAPL: " << dataExchange.GetQuote("AAPL") << std::endl;
 }

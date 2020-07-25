@@ -51,10 +51,10 @@
     <ClInclude Include="src\FinnHub.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\FinnHub\FinnHub.h">
+    <ClInclude Include="src\FinnHub\FinnHubAPI.h">
       <Filter>src\FinnHub</Filter>
     </ClInclude>
-    <ClInclude Include="src\StockObjects\Symbol.h">
+    <ClInclude Include="src\StockObjects\Candle.h">
       <Filter>src\StockObjects</Filter>
     </ClInclude>
     <ClInclude Include="src\gepch.h">
@@ -533,10 +533,10 @@
     <ClCompile Include="src\Core\URLData.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\FinnHub\FinnHub.cpp">
+    <ClCompile Include="src\FinnHub\FinnHubAPI.cpp">
       <Filter>src\FinnHub</Filter>
     </ClCompile>
-    <ClCompile Include="src\StockObjects\Symbol.cpp">
+    <ClCompile Include="src\StockObjects\Candle.cpp">
       <Filter>src\StockObjects</Filter>
     </ClCompile>
     <ClCompile Include="src\gepch.cpp">

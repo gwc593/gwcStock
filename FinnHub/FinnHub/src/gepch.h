@@ -1,6 +1,8 @@
 #pragma once
+#include "Core/Core.h"
 #include<iostream>
 #include<stdio.h>
+#include<ctime>
 #include<memory>
 #include<bitset>
 #include<array>
@@ -10,14 +12,12 @@
 #include<algorithm>
 #include<functional>
 
-#include<ctime>
 #include<string>
 #include<sstream>
 #include<vector>
 #include<unordered_map>
 #include<unordered_set>
 
-#include "Core/Core.h"
 
 
 

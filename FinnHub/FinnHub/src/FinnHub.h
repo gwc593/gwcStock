@@ -1,3 +1,4 @@
 #pragma once
 
-#include"Finnhub/FinnHub.h"
+#include"Finnhub/FinnHubAPI.h"
+#include"StockObjects/Candle.h"

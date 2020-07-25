@@ -146,8 +146,8 @@
     <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\Core\URLData.h" />
     <ClInclude Include="src\FinnHub.h" />
-    <ClInclude Include="src\FinnHub\FinnHub.h" />
-    <ClInclude Include="src\StockObjects\Symbol.h" />
+    <ClInclude Include="src\FinnHub\FinnHubAPI.h" />
+    <ClInclude Include="src\StockObjects\Candle.h" />
     <ClInclude Include="src\gepch.h" />
     <ClInclude Include="vendor\curl\include\curl\curl.h" />
     <ClInclude Include="vendor\curl\include\curl\curlver.h" />
@@ -308,8 +308,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp" />
-    <ClCompile Include="src\FinnHub\FinnHub.cpp" />
-    <ClCompile Include="src\StockObjects\Symbol.cpp" />
+    <ClCompile Include="src\FinnHub\FinnHubAPI.cpp" />
+    <ClCompile Include="src\StockObjects\Candle.cpp" />
     <ClCompile Include="src\gepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
