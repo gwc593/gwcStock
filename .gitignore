@@ -353,3 +353,4 @@ MigrationBackup/
 /gwcStocks/*.sln
 /gwcStocks/gwcStocks/*.vcxproj
 bin-int
+*.sln
