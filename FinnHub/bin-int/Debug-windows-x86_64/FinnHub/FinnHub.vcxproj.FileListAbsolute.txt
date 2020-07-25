@@ -1,2 +1,0 @@
-C:\Users\gwc59\OneDrive\Desktop\gwcStocks\FinnHub\bin\Debug-windows-x86_64\FinnHub\FinnHub.pdb
-C:\Users\gwc59\OneDrive\Desktop\gwcStocks\FinnHub\bin-int\Debug-windows-x86_64\FinnHub\FinnHub.pdb
