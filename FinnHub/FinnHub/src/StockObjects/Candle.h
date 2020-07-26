@@ -1,5 +1,7 @@
 #pragma once
 #include "gepch.h"
+#include"Core/JSON.h"
+
 namespace FinnHub
 {
 	class Candle

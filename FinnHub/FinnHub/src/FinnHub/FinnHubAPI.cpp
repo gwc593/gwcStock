@@ -37,3 +37,17 @@ std::string FinnHubAPI::GetQuote(const char* symbol)
 
 	return result;
 }
+
+std::string FinnHubAPI::GetSymbols(const char* exchange)
+{
+	std::string action = "/stock/symbol?exchange=";
+
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+
+	std::string req = m_Base + action + exchange + m_Key;
+
+	std::string result = url->CurlURL(req);
+
+	return result;
+
+}

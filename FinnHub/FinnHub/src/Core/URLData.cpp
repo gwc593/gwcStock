@@ -14,7 +14,7 @@ namespace gwcStock
 
 
 
-
+	 
 	 size_t URLData::WriteMemoryCallback(void* contents, size_t size, size_t nmemb, void* userp)
 	 {
 		 size_t realsize = size * nmemb;
@@ -23,7 +23,7 @@ namespace gwcStock
 		 char* ptr = (char*)realloc(mem->memory, mem->size + realsize + 1);
 
 		 if (ptr == NULL) {
-			 /* out of memory! */
+			 //out of memory! 
 			 printf("not enough memory (realloc returned NULL)\n");
 			 return 0;
 		 }
@@ -35,9 +35,13 @@ namespace gwcStock
 
 		 return realsize;
 	 }
+	 
+
+
 
 	 std::string URLData::CurlURL(const std::string& url)
 	 {
+		 chunk.Clear();
 		 curl_easy_setopt(m_curl, CURLOPT_URL, url.c_str());
 
 		 curl_easy_setopt(m_curl, CURLOPT_WRITEFUNCTION, &URLData::WriteMemoryCallback);

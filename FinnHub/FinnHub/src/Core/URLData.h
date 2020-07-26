@@ -11,6 +11,15 @@ struct MemoryStruct
 		memory = nullptr;
 		size = 0;
 	}
+
+	void Clear()
+	{
+		if (memory != nullptr) {
+			free(memory);
+			memory = nullptr;
+		}
+		size = 0;
+	}
 };
 
 namespace gwcStock

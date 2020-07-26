@@ -528,6 +528,8 @@
     <ClInclude Include="vendor\curl\lib\x509asn1.h">
       <Filter>vendor\curl\lib</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\JSON.h" />
+    <ClInclude Include="src\StockObjects\Symbol.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">

@@ -11,6 +11,7 @@ public:
 	void SetKey(std::string key);
 	void SetBase(std::string base);
 
+	std::string GetSymbols(const char* exchange);
 	std::string GetQuote(const char* symbol);
 private:
 

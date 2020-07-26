@@ -144,11 +144,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\JSON.h" />
     <ClInclude Include="src\Core\URLData.h" />
     <ClInclude Include="src\FinnHub.h" />
     <ClInclude Include="src\FinnHub\FinnHubAPI.h" />
     <ClInclude Include="src\StockObjects\Candle.h" />
     <ClInclude Include="src\gepch.h" />
+    <ClInclude Include="src\StockObjects\Symbol.h" />
     <ClInclude Include="vendor\curl\include\curl\curl.h" />
     <ClInclude Include="vendor\curl\include\curl\curlver.h" />
     <ClInclude Include="vendor\curl\include\curl\easy.h" />
