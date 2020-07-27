@@ -9,3 +9,4 @@
 #include"StockObjects/News.h"
 #include"StockObjects/NewsSentiment.h"
 #include"StockObjects/Peers.h"
+#include"StockObjects/BasicFinancials.h"

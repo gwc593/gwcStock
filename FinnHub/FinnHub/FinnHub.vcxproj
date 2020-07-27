@@ -151,6 +151,7 @@
     <ClInclude Include="src\StockObjects\Candle.h" />
     <ClInclude Include="src\gepch.h" />
     <ClInclude Include="src\StockObjects\CompanyProfile.h" />
+    <ClInclude Include="src\StockObjects\BasicFinancials.h" />
     <ClInclude Include="src\StockObjects\News.h" />
     <ClInclude Include="src\StockObjects\NewsSentiment.h" />
     <ClInclude Include="src\StockObjects\Peers.h" />

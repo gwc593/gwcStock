@@ -111,3 +111,38 @@ std::string FinnHubAPI::GetPeers(const char* symbol)
 
 	return result;
 }
+
+
+
+std::string FinnHubAPI::GetBasicFinancials(const char* symbol, metric type)
+{
+	std::string metricType;
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/stock/metric?symbol=" + std::string(symbol);
+
+	switch (type) {
+	case FinnHubAPI::metric::all:
+		metricType = "all";
+		break;
+	case FinnHubAPI::metric::price:
+		metricType = "price";
+		break;
+	case FinnHubAPI::metric::valuation:
+		metricType = "valuation";
+		break;
+	case FinnHubAPI::metric::margin:
+		metricType = "margin";
+		break;
+	default:
+		metricType = "all";
+		break;
+	}
+
+	action += "&metric=" + metricType;
+
+	std::string req = m_Base + action + m_Key;
+
+	std::string result = url->CurlURL(req);
+	std::cout << metricType << ": " << result << std::endl;
+	return result;
+}

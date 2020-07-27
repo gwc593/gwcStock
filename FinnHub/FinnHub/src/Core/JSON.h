@@ -55,7 +55,12 @@ public:
 			end = data.find("}");
 
 		data.erase(end, data.size() - end);
+		try {
 		output = std::stof(data);
+		}
+		catch (...) {
+			output = 0.0f;
+		}
 	}
 
 	static void DeserialiseMember(const std::string& serialisedObj, const std::string& memberToken, double& output)
@@ -70,7 +75,13 @@ public:
 			end = data.find("}");
 
 		data.erase(end, data.size() - end);
+
+		try {
 		output = std::stod(data);
+		}
+		catch (...) {
+			output = 0.0;
+		}
 	}
 
 	static void DeserialiseMember(const std::string& serialisedObj, const std::string& memberToken, std::time_t& output)
@@ -85,7 +96,13 @@ public:
 			end = data.find("}");
 
 		data.erase(end, data.size() - end);
+
+		try {
 		output = std::atoll(data.c_str());
+		}
+		catch (...) {
+			output = 0;
+		}
 	}
 
 	static void DeserialiseMember(const std::string& serialisedObj, const std::string& memberToken, int& output)
@@ -100,7 +117,13 @@ public:
 			end = data.find("}");
 
 		data.erase(end, data.size() - end);
-		output = std::atoi(data.c_str());
+		try {
+			output = std::atoi(data.c_str());
+		}
+		catch (...) {
+			output = 0;
+		}
+		
 	}
 
 	static void DeserialiseMember(const std::string& serialisedObj, const std::string& memberToken, std::string& output)

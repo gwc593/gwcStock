@@ -13,7 +13,8 @@ bool testGetCompanyProfile2 = false;
 bool testGetNews			= false;
 bool testGetCompanyNews		= false;
 bool testGetNewsSentiment	= false;
-bool testGetPeers	= true;
+bool testGetPeers			= false;
+bool testGetBasicFinancials	= true;
 
 
 int main()
@@ -109,6 +110,13 @@ int main()
 		peers.Deserialise(peersJSON);
 	}
 
+	//Basic Financials
+	std::string basicFinancialsJSON;
+	FinnHub::BasicFinancials basicFinancials;
+	if (::testGetBasicFinancials) {
+		basicFinancialsJSON = dataExchange.GetBasicFinancials("AAPL", FinnHubAPI::metric::all);
+		basicFinancials.Deserialise(basicFinancialsJSON);
+	}
 
 	std::cout << "finished" << std::endl; //debug break here to see output.
 }

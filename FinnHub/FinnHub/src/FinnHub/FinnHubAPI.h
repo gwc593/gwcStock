@@ -102,6 +102,24 @@ public:
 	/// <returns>JSON formatted std::string</returns>
 	std::string GetPeers(const char* symbol);
 
+	/// <summary>
+	/// Method to peers/similar companies compared to the provided symbol
+	/// return JSON fomatted string, can be deserialied by a FinnHub::Peers object.
+	/// Documentation at https://finnhub.io/docs/api#news-sentiment
+	/// </summary>
+	/// <param name="symbol"> stock  symbol eg 'AAPL' </param>
+	/// <param name="minID"> Use this field to get only news after this ID. Default to 0 </param>
+	/// <returns>JSON formatted std::string</returns>
+	enum class metric
+	{
+		all = 0,
+		price,
+		valuation,
+		margin
+	};
+
+	std::string GetBasicFinancials(const char* symbol, metric type = metric::all);
+
 private:
 
 
