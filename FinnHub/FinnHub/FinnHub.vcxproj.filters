@@ -530,6 +530,7 @@
     </ClInclude>
     <ClInclude Include="src\Core\JSON.h" />
     <ClInclude Include="src\StockObjects\Symbol.h" />
+    <ClInclude Include="src\StockObjects\CompanyProfile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">

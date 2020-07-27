@@ -49,5 +49,15 @@ std::string FinnHubAPI::GetSymbols(const char* exchange)
 	std::string result = url->CurlURL(req);
 
 	return result;
+}
 
+std::string FinnHubAPI::GetCompanyProfile2(const char* symbol)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/stock/profile2?symbol=";
+	std::string req = m_Base + action + symbol + m_Key;
+
+	std::string result = url->CurlURL(req);
+
+	return result;
 }
