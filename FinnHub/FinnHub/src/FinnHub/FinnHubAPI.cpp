@@ -61,3 +61,14 @@ std::string FinnHubAPI::GetCompanyProfile2(const char* symbol)
 
 	return result;
 }
+
+std::string FinnHubAPI::GetNews(const char* category, uint32_t minID)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/news?category=" + std::string(category) + "&minId=" + std::to_string(minID);
+	std::string req = m_Base + action + m_Key;
+
+	std::string result = url->CurlURL(req);
+
+	return result;
+}

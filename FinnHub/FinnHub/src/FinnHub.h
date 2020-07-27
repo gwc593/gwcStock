@@ -6,3 +6,4 @@
 #include"StockObjects/Candle.h"
 #include"StockObjects/Symbol.h"
 #include"StockObjects/CompanyProfile.h"
+#include"StockObjects/News.h"

@@ -31,4 +31,15 @@ int main()
 	FinnHub::CompanyProfile companyProfleObj;
 	companyProfleObj.Deserialise(companyProfile2JSON);
 
+
+	//GetNews
+	//////////
+	std::string newsJSON = dataExchange.GetNews("general", 0);
+	std::vector<FinnHub::News> articles;
+	auto numberOfArticles = JSON::NumObjects(newsJSON);
+	for (int i = 0; i < numberOfArticles; i++) {
+		FinnHub::News tmp;
+		tmp.Deserialise(JSON::GetObjDataN(newsJSON, i));
+		articles.push_back(tmp);
+	}
 }
