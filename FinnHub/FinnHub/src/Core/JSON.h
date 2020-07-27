@@ -122,6 +122,22 @@ public:
 		output = data;
 	}
 
+	static std::string GetSubObjectData(const std::string& serialisedObj, const std::string& memberToken)
+	{
+		std::string data;
+		size_t end;
+
+		data = serialisedObj.substr(serialisedObj.find("\"" + memberToken + "\"") + (3 + memberToken.size()));
+
+		end = data.find("}");
+
+		data.erase(end, data.size() - (end+1));
+
+		return data;
+	}
+
+
+
 private:
 	JSON() = default;
 };

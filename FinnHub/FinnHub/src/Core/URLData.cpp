@@ -11,9 +11,6 @@ namespace gwcStock
 
 		return URLData::s_instance;
 	}
-
-
-
 	 
 	 size_t URLData::WriteMemoryCallback(void* contents, size_t size, size_t nmemb, void* userp)
 	 {

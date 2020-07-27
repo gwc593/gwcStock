@@ -532,6 +532,7 @@
     <ClInclude Include="src\StockObjects\Symbol.h" />
     <ClInclude Include="src\StockObjects\CompanyProfile.h" />
     <ClInclude Include="src\StockObjects\News.h" />
+    <ClInclude Include="src\StockObjects\NewsSentiment.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">

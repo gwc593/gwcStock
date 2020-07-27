@@ -7,6 +7,7 @@ int main()
 	/////////////////////////////////////
 	FinnHubAPI dataExchange("bse5d8frh5rea8raakb0");
 
+
 	//get all available symbols from US stock exchange
 	//////////////////////////////////////////////////
 	std::string symbolDataJSON = dataExchange.GetSymbols("US");
@@ -17,7 +18,7 @@ int main()
 		tmp.Deserialise(JSON::GetObjDataN(symbolDataJSON, i));
 		symbols.push_back(tmp);
 	}
-	
+
 	//Get quote for AAPL and store it in a FinnHub Candle Object
 	/////////////////////////////////////////////////////////////
 	std::string candleJSON = dataExchange.GetQuote("AAPL");
@@ -51,4 +52,12 @@ int main()
 		tmp.Deserialise(JSON::GetObjDataN(companyNewsJSON, i));
 		companyArticles.push_back(tmp);
 	}
+
+	
+
+	//Get News Sentiment
+	std::string newsSentimentJSON = dataExchange.GetNewsSentiment("AAPL");
+	FinnHub::NewsSentiment newsSentiment;
+	newsSentiment.Deserialise(newsSentimentJSON);
+
 }

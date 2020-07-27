@@ -85,3 +85,16 @@ std::string FinnHubAPI::GetCompanyNews(const char* symbol, const char* startDate
 
 	return result;
 }
+
+std::string FinnHubAPI::GetNewsSentiment(const char* symbol)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+
+	std::string action = "/news-sentiment?symbol=";
+
+	std::string req = m_Base + action + symbol + m_Key;
+
+	std::string result = url->CurlURL(req);
+
+	return result;
+}

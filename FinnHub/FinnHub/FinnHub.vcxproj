@@ -152,6 +152,7 @@
     <ClInclude Include="src\gepch.h" />
     <ClInclude Include="src\StockObjects\CompanyProfile.h" />
     <ClInclude Include="src\StockObjects\News.h" />
+    <ClInclude Include="src\StockObjects\NewsSentiment.h" />
     <ClInclude Include="src\StockObjects\Symbol.h" />
     <ClInclude Include="vendor\curl\include\curl\curl.h" />
     <ClInclude Include="vendor\curl\include\curl\curlver.h" />
