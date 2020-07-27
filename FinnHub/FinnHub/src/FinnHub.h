@@ -8,3 +8,4 @@
 #include"StockObjects/CompanyProfile.h"
 #include"StockObjects/News.h"
 #include"StockObjects/NewsSentiment.h"
+#include"StockObjects/Peers.h"

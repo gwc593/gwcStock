@@ -8,11 +8,12 @@
 
 //Testing profile
 bool testGetSymbols			= false; //Slow in debug mode
-bool testGetQuote			= true;
-bool testGetCompanyProfile2 = true;
-bool testGetNews			= true;
-bool testGetCompanyNews		= true;
-bool testGetNewsSentiment	= true;
+bool testGetQuote			= false;
+bool testGetCompanyProfile2 = false;
+bool testGetNews			= false;
+bool testGetCompanyNews		= false;
+bool testGetNewsSentiment	= false;
+bool testGetPeers	= true;
 
 
 int main()
@@ -75,7 +76,6 @@ int main()
 		}
 	}
 
-
 	//GetCompanyNews
 	std::string companyNewsJSON;
 	std::vector<FinnHub::News> companyArticles;
@@ -101,5 +101,14 @@ int main()
 		newsSentiment.Deserialise(newsSentimentJSON);
 	}
 
-	std::cout << "finished" << std::endl;
+	//Get Peers
+	std::string peersJSON;
+	FinnHub::Peers peers;
+	if (::testGetPeers) {
+		peersJSON = dataExchange.GetPeers("AAPL");
+		peers.Deserialise(peersJSON);
+	}
+
+
+	std::cout << "finished" << std::endl; //debug break here to see output.
 }
