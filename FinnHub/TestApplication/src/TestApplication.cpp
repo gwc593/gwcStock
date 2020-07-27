@@ -1,6 +1,10 @@
 #include<FinnHub.h>
-
 #include<iostream>
+
+/// !!!! READ ME FINNHUB REP!!!!!///
+// please run in Release mode to test speed, the for loop for populating std::vector<FinnHub::Symbol> symbols; ~ line 17 is inherantly very slow in debug mode because of the number of debug symbols. 
+// if you want to run in debug, please comment the afformentioned section out.
+
 int main()
 {
 	//Initialise FinnHub Exchange object
@@ -59,5 +63,4 @@ int main()
 	std::string newsSentimentJSON = dataExchange.GetNewsSentiment("AAPL");
 	FinnHub::NewsSentiment newsSentiment;
 	newsSentiment.Deserialise(newsSentimentJSON);
-
 }
