@@ -1,2 +1,2 @@
 # gwcStock
-stock scraper
+C++ API wrapper for FinnHub
