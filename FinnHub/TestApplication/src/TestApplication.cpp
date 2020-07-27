@@ -3,6 +3,7 @@
 #include<iostream>
 int main()
 {
+	//Initialise FinnHub Exchange object
 	FinnHubAPI dataExchange("bse5d8frh5rea8raakb0");
 
 	//get all available symbols from US stock exchange
