@@ -71,6 +71,17 @@ public:
 	/// <returns>JSON formatted std::string</returns>
 	std::string GetNews(const char* category = "general", uint32_t minID = 0);
 
+	/// <summary>
+	/// Method to get real-time news data about a specific company
+	/// return JSON fomatted string, can be deserialied by a FinnHub::News object.
+	/// Documentation at https://finnhub.io/docs/api#company-news
+	/// </summary>
+	/// <param name="symbol"> stock  symbol eg 'AAPL' </param>
+	/// <param name="minID"> Use this field to get only news after this ID. Default to 0 </param>
+	/// <returns>JSON formatted std::string</returns>
+	std::string GetCompanyNews(const char* symbol, const char* startDate = "1970-01-01", const char* endDate = "3000-01-01");
+
+
 private:
 
 

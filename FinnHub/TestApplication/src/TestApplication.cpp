@@ -10,7 +10,6 @@ int main()
 	//get all available symbols from US stock exchange
 	//////////////////////////////////////////////////
 	std::string symbolDataJSON = dataExchange.GetSymbols("US");
-
 	auto numberOfSymbols = JSON::NumObjects(symbolDataJSON);
 	std::vector<FinnHub::Symbol> symbols;
 	for (int i = 0; i < numberOfSymbols; i++) {
@@ -41,5 +40,15 @@ int main()
 		FinnHub::News tmp;
 		tmp.Deserialise(JSON::GetObjDataN(newsJSON, i));
 		articles.push_back(tmp);
+	}
+
+	//GetCompanyNews
+	std::string companyNewsJSON = dataExchange.GetCompanyNews("AAPL");
+	std::vector<FinnHub::News> companyArticles;
+	auto numberOfCompanyArticles = JSON::NumObjects(companyNewsJSON);
+	for (int i = 0; i < numberOfCompanyArticles; i++) {
+		FinnHub::News tmp;
+		tmp.Deserialise(JSON::GetObjDataN(companyNewsJSON, i));
+		companyArticles.push_back(tmp);
 	}
 }

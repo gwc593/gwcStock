@@ -35,9 +35,6 @@ namespace gwcStock
 
 		 return realsize;
 	 }
-	 
-
-
 
 	 std::string URLData::CurlURL(const std::string& url)
 	 {
