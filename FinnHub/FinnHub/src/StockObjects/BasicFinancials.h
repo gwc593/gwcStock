@@ -296,11 +296,9 @@ namespace FinnHub
 		const float GetTotalDebtCagr5Y() const { return								m_totalDebtCagr5Y; }
 		const float GetYearToDatePriceReturnDaily() const { return		            m_yearToDatePriceReturnDaily; }
 #pragma endregion
-
-
-		
-		
+	
 	private:
+#pragma region Private Storage
 		std::string m_52WeekHighDate; 
 		std::string m_52WeekLowDate; 
 		float m_10DayAverageTradingVolume;
@@ -441,6 +439,8 @@ namespace FinnHub
 		float m_totalDebt_totalEquityQuarterly; 
 		float m_totalDebtCagr5Y; 
 		float m_yearToDatePriceReturnDaily; 
+
+#pragma endregion
 	};
 
 	class BasicFinancials
