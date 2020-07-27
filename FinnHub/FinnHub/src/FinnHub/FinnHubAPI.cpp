@@ -143,6 +143,5 @@ std::string FinnHubAPI::GetBasicFinancials(const char* symbol, metric type)
 	std::string req = m_Base + action + m_Key;
 
 	std::string result = url->CurlURL(req);
-	std::cout << metricType << ": " << result << std::endl;
 	return result;
 }

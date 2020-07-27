@@ -114,7 +114,7 @@ int main()
 	std::string basicFinancialsJSON;
 	FinnHub::BasicFinancials basicFinancials;
 	if (::testGetBasicFinancials) {
-		basicFinancialsJSON = dataExchange.GetBasicFinancials("AAPL", FinnHubAPI::metric::all);
+		basicFinancialsJSON = dataExchange.GetBasicFinancials("AAPL", FinnHubAPI::metric::price);
 		basicFinancials.Deserialise(basicFinancialsJSON);
 	}
 
