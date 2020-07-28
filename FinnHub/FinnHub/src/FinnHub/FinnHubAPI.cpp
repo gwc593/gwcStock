@@ -145,3 +145,26 @@ std::string FinnHubAPI::GetBasicFinancials(const char* symbol, metric type)
 	std::string result = url->CurlURL(req);
 	return result;
 }
+
+
+std::string FinnHubAPI::GetIPOCalendar(const char* startDate , const char* endDate)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/calendar/ipo?from=" + std::string(startDate) +"&to=" + endDate;
+	return url->CurlURL(m_Base + action + m_Key);
+}
+
+
+std::string FinnHubAPI::GetRecommendationTrends(const char* symbol)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/stock/recommendation?symbol=" + std::string(symbol);
+	return url->CurlURL(m_Base + action + m_Key);
+}
+
+std::string FinnHubAPI::GetPriceTarget(const char* symbol)
+{
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string action = "/stock/price-target?symbol=" + std::string(symbol);
+	return url->CurlURL(m_Base + action + m_Key);
+}

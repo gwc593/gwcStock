@@ -535,6 +535,9 @@
     <ClInclude Include="src\StockObjects\NewsSentiment.h" />
     <ClInclude Include="src\StockObjects\Peers.h" />
     <ClInclude Include="src\StockObjects\BasicFinancials.h" />
+    <ClInclude Include="src\StockObjects\IPO.h" />
+    <ClInclude Include="src\StockObjects\Recommendations.h" />
+    <ClInclude Include="src\StockObjects\PriceTarget.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">

@@ -152,9 +152,12 @@
     <ClInclude Include="src\gepch.h" />
     <ClInclude Include="src\StockObjects\CompanyProfile.h" />
     <ClInclude Include="src\StockObjects\BasicFinancials.h" />
+    <ClInclude Include="src\StockObjects\IPO.h" />
     <ClInclude Include="src\StockObjects\News.h" />
     <ClInclude Include="src\StockObjects\NewsSentiment.h" />
     <ClInclude Include="src\StockObjects\Peers.h" />
+    <ClInclude Include="src\StockObjects\PriceTarget.h" />
+    <ClInclude Include="src\StockObjects\Recommendations.h" />
     <ClInclude Include="src\StockObjects\Symbol.h" />
     <ClInclude Include="vendor\curl\include\curl\curl.h" />
     <ClInclude Include="vendor\curl\include\curl\curlver.h" />

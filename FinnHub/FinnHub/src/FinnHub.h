@@ -10,3 +10,6 @@
 #include"StockObjects/NewsSentiment.h"
 #include"StockObjects/Peers.h"
 #include"StockObjects/BasicFinancials.h"
+#include"StockObjects/IPO.h"
+#include"StockObjects/Recommendations.h"
+#include"StockObjects/PriceTarget.h"

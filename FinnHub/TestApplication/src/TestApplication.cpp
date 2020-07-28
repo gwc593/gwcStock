@@ -14,7 +14,10 @@ bool testGetNews			= false;
 bool testGetCompanyNews		= false;
 bool testGetNewsSentiment	= false;
 bool testGetPeers			= false;
-bool testGetBasicFinancials	= true;
+bool testGetBasicFinancials	= false;
+bool testIPOCalendar		= false;
+bool testGetReccomendations	= false;
+bool testGetPriceTarget	= true;
 
 
 int main()
@@ -61,6 +64,7 @@ int main()
 		companyProfleObj.Deserialise(companyProfile2JSON);
 	}
 
+
 	//GetNews
 	//////////
 	std::string newsJSON;
@@ -76,6 +80,7 @@ int main()
 			articles.push_back(tmp);
 		}
 	}
+
 
 	//GetCompanyNews
 	std::string companyNewsJSON;
@@ -102,6 +107,7 @@ int main()
 		newsSentiment.Deserialise(newsSentimentJSON);
 	}
 
+
 	//Get Peers
 	std::string peersJSON;
 	FinnHub::Peers peers;
@@ -110,6 +116,7 @@ int main()
 		peers.Deserialise(peersJSON);
 	}
 
+
 	//Basic Financials
 	std::string basicFinancialsJSON;
 	FinnHub::BasicFinancials basicFinancials;
@@ -117,6 +124,42 @@ int main()
 		basicFinancialsJSON = dataExchange.GetBasicFinancials("AAPL", FinnHubAPI::metric::price);
 		basicFinancials.Deserialise(basicFinancialsJSON);
 	}
+	
+
+	//IPO Calendar
+	std::string ipoJSON;
+	std::vector<FinnHub::IPO> IPOs;
+	if (::testIPOCalendar) {
+		ipoJSON = dataExchange.GetIPOCalendar();
+		for (int i = 0; i < JSON::NumObjects(ipoJSON); i++) {
+			FinnHub::IPO tmp;
+			tmp.Deserialise(JSON::GetObjDataN(ipoJSON, i));
+			IPOs.push_back(tmp);
+		}
+	}
+
+
+	//Recommendation Trends
+	std::string recommendationJSON;
+	std::vector<FinnHub::Recommendations> recommendations;
+	if (::testGetReccomendations) {
+		recommendationJSON = dataExchange.GetRecommendationTrends("AAPL");
+		for (int i = 0; i < JSON::NumObjects(recommendationJSON); i++) {
+			FinnHub::Recommendations tmp;
+			tmp.Deserialise(JSON::GetObjDataN(recommendationJSON, i));
+			recommendations.push_back(tmp);
+		}
+	}
+
+
+	//Price Target
+	std::string priceTargetJSON;
+	FinnHub::PriceTarget priceTarget;
+	if (::testGetPriceTarget) {
+		priceTargetJSON = dataExchange.GetPriceTarget("AAPL");
+		priceTarget.Deserialise(priceTargetJSON);
+	}
+
 
 	std::cout << "finished" << std::endl; //debug break here to see output.
 }

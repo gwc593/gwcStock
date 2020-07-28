@@ -39,6 +39,7 @@ public:
 
 		
 		cpy.erase(0, pos);
+		//TODO GWC - this will not work if object has sub object, need to find where sum of open -close = 0
 		cpy.erase(cpy.find('}') + 1, cpy.size());
 		return cpy;
 	}
@@ -160,7 +161,84 @@ public:
 	}
 
 
+	static void Print(const std::string& JSONdata)
+	{
+		uint32_t noOpen =0;
+		char c;
+		int tabSize = 4;
+		for (int i = 0; i < JSONdata.size(); i++) {
+			c = JSONdata.c_str()[i];
+
+			switch (c) {
+				case '{': 
+				{
+					std::cout << std::endl;
+					printTabs(noOpen, 4);
+					std::cout << c << std::endl;
+					++noOpen;
+					printTabs(noOpen, 4);
+					break;
+				}
+				case '[':
+				{
+					std::cout << std::endl;
+					printTabs(noOpen, 4);
+					std::cout << c << std::endl;
+					++noOpen;
+					printTabs(noOpen, 4);
+					break;
+				}
+				case '}':
+				{
+					std::cout << std::endl;
+					--noOpen;
+					printTabs(noOpen, 4);
+					std::cout << c;
+					if (JSONdata.c_str()[i + 1] == ',') {
+						std::cout << "," << std::endl;
+						i++;
+					}
+					std::cout << std::endl;
+					printTabs(noOpen, 4);
+					break;
+				}
+				case ']':
+				{
+					std::cout << std::endl;
+					--noOpen;
+					printTabs(noOpen, 4);
+					std::cout << c;
+					if (JSONdata.c_str()[i + 1] == ',') {
+						std::cout << "," << std::endl;
+						i++;
+					}
+					std::cout << std::endl;
+					printTabs(noOpen, 4);
+					break;
+				}
+				case',':
+				{
+					std::cout << c << std::endl;
+					printTabs(noOpen, 4);
+					break;
+				}
+				default: {
+					std::cout << c;
+					break;
+				}
+			}
+		}
+	}
 
 private:
 	JSON() = default;
+
+	static void printTabs(uint32_t n, uint32_t size)
+	{
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < size; j++) {
+				std::cout << " ";
+			}
+		}
+	}
 };
