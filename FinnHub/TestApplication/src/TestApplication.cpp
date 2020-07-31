@@ -8,7 +8,7 @@
 
 //Testing profile
 bool testGetSymbols			= false; //Slow in debug mode
-bool testGetQuote			= false;
+bool testGetQuote			= true;
 bool testGetCompanyProfile2 = false;
 bool testGetNews			= false;
 bool testGetCompanyNews		= false;
@@ -49,7 +49,7 @@ int main()
 	FinnHub::Candle myCandle;
 
 	if (::testGetQuote) {
-		candleJSON = dataExchange.GetQuote("AAPL");
+		candleJSON = dataExchange.GetQuote("AML.L");
 		myCandle.Deserialise(candleJSON);
 	}
 
