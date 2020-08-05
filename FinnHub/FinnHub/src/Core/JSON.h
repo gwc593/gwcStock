@@ -152,10 +152,10 @@ public:
 		size_t end;
 
 		data = serialisedObj.substr(serialisedObj.find("\"" + memberToken + "\"") + (3 + memberToken.size()));
-
+		end = data.find("]");
+		data.erase(end, data.size() - (end + 1));
 		data.erase(0, 1);
 		data.erase(data.size() - 1);
-
 		output = data;
 	}
 

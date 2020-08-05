@@ -165,6 +165,7 @@ int main()
 	//historic data
 	//todo, need to deserialise into candle array
 	std::string historicJSON;
+
 	auto _end = std::chrono::system_clock::now();
 	std::time_t end = std::chrono::system_clock::to_time_t(_end);
 	const long long Year = 86400 * 365;
