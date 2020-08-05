@@ -150,6 +150,7 @@
     <ClInclude Include="src\FinnHub\FinnHubAPI.h" />
     <ClInclude Include="src\StockObjects\Candle.h" />
     <ClInclude Include="src\gepch.h" />
+    <ClInclude Include="src\StockObjects\CandleArray.h" />
     <ClInclude Include="src\StockObjects\CompanyProfile.h" />
     <ClInclude Include="src\StockObjects\BasicFinancials.h" />
     <ClInclude Include="src\StockObjects\IPO.h" />
@@ -319,6 +320,7 @@
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp" />
     <ClCompile Include="src\FinnHub\FinnHubAPI.cpp" />
+    <ClCompile Include="src\StockObjects\CandleArray.cpp" />
     <ClCompile Include="src\StockObjects\Candle.cpp" />
     <ClCompile Include="src\gepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

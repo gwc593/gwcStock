@@ -4,6 +4,7 @@
 
 //deserialise objects
 #include"StockObjects/Candle.h"
+#include"StockObjects/CandleArray.h"
 #include"StockObjects/Symbol.h"
 #include"StockObjects/CompanyProfile.h"
 #include"StockObjects/News.h"

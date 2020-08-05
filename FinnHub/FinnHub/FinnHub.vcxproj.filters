@@ -538,6 +538,7 @@
     <ClInclude Include="src\StockObjects\IPO.h" />
     <ClInclude Include="src\StockObjects\Recommendations.h" />
     <ClInclude Include="src\StockObjects\PriceTarget.h" />
+    <ClInclude Include="src\StockObjects\CandleArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">
@@ -552,5 +553,6 @@
     <ClCompile Include="src\gepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\StockObjects\CandleArray.cpp" />
   </ItemGroup>
 </Project>

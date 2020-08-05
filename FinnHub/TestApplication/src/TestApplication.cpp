@@ -8,7 +8,7 @@
 
 //Testing profile
 bool testGetSymbols			= false; //Slow in debug mode
-bool testGetQuote			= true;
+bool testGetQuote			= false;
 bool testGetCompanyProfile2 = false;
 bool testGetNews			= false;
 bool testGetCompanyNews		= false;
@@ -17,7 +17,8 @@ bool testGetPeers			= false;
 bool testGetBasicFinancials	= false;
 bool testIPOCalendar		= false;
 bool testGetReccomendations	= false;
-bool testGetPriceTarget	= true;
+bool testGetPriceTarget		= false;
+bool testHistoricData		= true;
 
 
 int main()
@@ -161,5 +162,19 @@ int main()
 	}
 
 
+	//historic data
+	//todo, need to deserialise into candle array
+	std::string historicJSON;
+	auto _end = std::chrono::system_clock::now();
+	std::time_t end = std::chrono::system_clock::to_time_t(_end);
+	const long long Year = 86400 * 365;
+	std::time_t start = end - (Year);
+
+	FinnHub::CandleArray historicCandles;
+
+	if (::testHistoricData) {
+		historicJSON = dataExchange.GetHistoricCandles("AAPL", start, end, FinnHubAPI::Period::day);
+		historicCandles.Deserialise(historicJSON);
+	}
 	std::cout << "finished" << std::endl; //debug break here to see output.
 }

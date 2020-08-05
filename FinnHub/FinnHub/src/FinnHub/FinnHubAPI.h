@@ -1,5 +1,7 @@
 #pragma once
 #include<string>
+#include<ctime>
+
 
 /// <summary>
 /// An Object to execute the available API calls provided by FinnHub
@@ -51,6 +53,21 @@ public:
 	/// <param name="symbol"> stock  symbol eg 'AAPL' </param>
 	/// <returns>JSON formatted std::string</returns>
 	std::string GetQuote(const char* symbol);
+
+
+	/// <summary>
+	/// Method to get a years worth of historic data between start and end datas
+	/// return JSON fomatted string, can be deserialied by a FinnHub::CandleArray object.
+	/// Documentation at https://finnhub.io/docs/api#quote
+	/// </summary>
+	/// <param name="symbol"> stock  symbol eg 'AAPL' </param>
+	/// <param name="start"> std::time_t start date </param>
+	/// <param name="end"> std::time_t end date </param>
+	/// <param name="period"> use FinnHubAPI::Period enum class </param>
+	/// <returns>JSON formatted std::string</returns>
+	enum class Period{min1=0, min5,min15,min30,min60,day,week,month};
+	std::string GetHistoricCandles(const char* symbol, std::time_t start, std::time_t end, Period period);
+
 
 	/// <summary>
 	/// Method to get company profile data from the free CompanyProfile2 API call
