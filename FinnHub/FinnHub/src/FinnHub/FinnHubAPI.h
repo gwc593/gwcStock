@@ -2,6 +2,7 @@
 #include<string>
 #include<ctime>
 #include<chrono>
+#include<mutex>
 
 
 /// <summary>
@@ -172,6 +173,7 @@ private:
 	/// <returns></returns>
 	FinnHubAPI(std::string key);
 	
+	std::mutex m_threadLock;
 	static FinnHubAPI* s_Instance;
 
 	std::string m_Key;
