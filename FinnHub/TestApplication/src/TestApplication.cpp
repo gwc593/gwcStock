@@ -34,7 +34,8 @@ int main()
 	auto tickerObj = StockTicker::Get();
 
 	tickerObj->SetPollRate(5);
-	auto callbackID = tickerObj->GetOnUpdateEvent().subscribe(onPricesChanged);
+	auto& eventThing = tickerObj->GetOnUpdateEvent();
+	eventThing.subscribe(onPricesChanged);
 
 
 	//////////////////////////////////
