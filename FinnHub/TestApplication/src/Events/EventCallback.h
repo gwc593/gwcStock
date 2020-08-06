@@ -1,6 +1,9 @@
 #pragma once
 #include "gepch.h"
 
+#define BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) {return this->fn(std::forward<decltype(args)>(args)...);}
+#define BIND_EVENT_FNO(fn,O)[this](auto&&... args) -> decltype(auto) {return O->fn(std::forward<decltype(args)>(args)...);}
+
 class IEventCallback
 {
 public:
