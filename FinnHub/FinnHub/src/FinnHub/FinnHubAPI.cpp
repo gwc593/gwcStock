@@ -39,7 +39,7 @@ std::string FinnHubAPI::GetQuote(const char* symbol)
 }
 
 
-std::string FinnHubAPI::GetHistoricCandles(const char* symbol, std::time_t start, std::time_t end, Period period)
+std::string FinnHubAPI::GetHistoricCandles(const char* symbol, Period period, std::time_t start, std::time_t end)
 {
 	std::string action = "/stock/candle?symbol=";
 	///stock/candle?symbol=AAPL&resolution=1&from=1572651390&to=1572910590

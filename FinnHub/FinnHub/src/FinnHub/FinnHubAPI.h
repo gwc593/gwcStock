@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<ctime>
+#include<chrono>
 
 
 /// <summary>
@@ -66,7 +67,8 @@ public:
 	/// <param name="period"> use FinnHubAPI::Period enum class </param>
 	/// <returns>JSON formatted std::string</returns>
 	enum class Period{min1=0, min5,min15,min30,min60,day,week,month};
-	std::string GetHistoricCandles(const char* symbol, std::time_t start, std::time_t end, Period period);
+	std::string GetHistoricCandles(const char* symbol, Period period = Period::day, std::time_t start = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now())- 31556952,
+								   std::time_t end = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
 
 
 	/// <summary>

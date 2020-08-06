@@ -168,13 +168,13 @@ int main()
 
 	auto _end = std::chrono::system_clock::now();
 	std::time_t end = std::chrono::system_clock::to_time_t(_end);
-	const long long Year = 86400 * 365;
+	const long long Year = 31556952;
 	std::time_t start = end - (Year);
 
 	FinnHub::CandleArray historicCandles;
 
 	if (::testHistoricData) {
-		historicJSON = dataExchange.GetHistoricCandles("AAPL", start, end, FinnHubAPI::Period::day);
+		historicJSON = dataExchange.GetHistoricCandles("AAPL", FinnHubAPI::Period::day, start, end );
 		historicCandles.Deserialise(historicJSON);
 	}
 	std::cout << "finished" << std::endl; //debug break here to see output.
