@@ -3,12 +3,23 @@
 
 StockTicker* StockTicker::s_Instance = nullptr;
 
-StockTicker* StockTicker::Get(WatchList& watchlist)
+void  StockTicker::Init(WatchList& watchlist, const FinnHubAPI::Period& period)
 {
 	if (s_Instance == nullptr)
 		s_Instance = new StockTicker(watchlist);
 
-	return s_Instance;
+
+	FinnHubAPI* dataExchange = FinnHubAPI::Get();
+	s_Instance->SetPollRate(period);
+
+	for (auto symbol : watchlist.GetSymbols()) {
+		FinnHub::CandleArray tmpArr;
+		std::string Json = dataExchange->GetHistoricCandles(symbol.c_str(), period, std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()) - (14 * 86400), std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
+
+		tmpArr.Deserialise(Json);
+
+		s_Instance->m_StockData[symbol] = tmpArr.GetData();
+	}
 }
 
 StockTicker* StockTicker::Get()
@@ -32,13 +43,13 @@ void StockTicker::GenerateData(bool& work)
 		if ((getNow() - m_StartTime) > m_PollPeriod) {
 			std::lock_guard<std::mutex> lock(m_DBLock);
 			m_StartTime = getNow();
-			std::cout << "updating stock prices" << std::endl;
-
 			for (auto symbol : m_watchList.GetSymbols()) {
 				tmpCandle.Deserialise(dataExchange->GetQuote(symbol.c_str()));
 				m_StockData[symbol].push_back(tmpCandle);
 
 			}
+
+			m_PricesUpdated.raiseEvent();
 		}
 	}
 }

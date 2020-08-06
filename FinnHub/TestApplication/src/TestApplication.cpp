@@ -7,6 +7,12 @@ const std::string GuyAPIKey = "bse5d8frh5rea8raakb0";
 const std::string SimonAPIKey = "";
 
 
+bool onPricesChanged()
+{
+	std::cout << "updating stock prices!!!!!!!!!!" << std::endl;
+	return false;
+}
+
 int main()
 {
 	//////////////////////////////
@@ -24,8 +30,11 @@ int main()
 	char intrp = ' ';
 
 	//iitialise ticker
-	auto tickerObj = StockTicker::Get(watchList);
+	StockTicker::Init(watchList,FinnHubAPI::Period::min30);
+	auto tickerObj = StockTicker::Get();
+
 	tickerObj->SetPollRate(5);
+	auto callbackID = tickerObj->GetOnUpdateEvent().subscribe(onPricesChanged);
 
 
 	//////////////////////////////////
