@@ -254,6 +254,8 @@
     <ClInclude Include="vendor\curl\lib\netrc.h" />
     <ClInclude Include="vendor\curl\lib\non-ascii.h" />
     <ClInclude Include="vendor\curl\lib\nonblock.h" />
+    <ClInclude Include="vendor\curl\lib\out\build\x64-Debug (default)\CMakeFiles\ShowIncludes\foo.h" />
+    <ClInclude Include="vendor\curl\lib\out\build\x64-Debug (default)\curl_config.h" />
     <ClInclude Include="vendor\curl\lib\parsedate.h" />
     <ClInclude Include="vendor\curl\lib\pingpong.h" />
     <ClInclude Include="vendor\curl\lib\pop3.h" />

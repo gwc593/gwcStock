@@ -28,6 +28,21 @@
     <Filter Include="vendor\curl\lib">
       <UniqueIdentifier>{BE308C16-2ABC-F9DA-33CD-7CCF9FD755DB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\curl\lib\out">
+      <UniqueIdentifier>{450DAEEE-B16E-8BFC-3ADC-D1AEA63CC2BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\curl\lib\out\build">
+      <UniqueIdentifier>{44F987A2-B0BB-BB2C-F96B-4AB9656D940A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\curl\lib\out\build\x64-Debug (default)">
+      <UniqueIdentifier>{1FC36FF2-8B33-726B-5452-ECF3C081AA6C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\curl\lib\out\build\x64-Debug (default)\CMakeFiles">
+      <UniqueIdentifier>{02A72FB3-EE7B-7766-172B-B762035F857D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\curl\lib\out\build\x64-Debug (default)\CMakeFiles\ShowIncludes">
+      <UniqueIdentifier>{8951376A-F5C5-CCC7-BE0F-1AD72A4358FB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor\curl\lib\vauth">
       <UniqueIdentifier>{153ADA52-81A6-954D-4A9A-2DABB6C5B7B5}</UniqueIdentifier>
     </Filter>
@@ -374,6 +389,12 @@
     </ClInclude>
     <ClInclude Include="vendor\curl\lib\nonblock.h">
       <Filter>vendor\curl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\curl\lib\out\build\x64-Debug (default)\CMakeFiles\ShowIncludes\foo.h">
+      <Filter>vendor\curl\lib\out\build\x64-Debug (default)\CMakeFiles\ShowIncludes</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\curl\lib\out\build\x64-Debug (default)\curl_config.h">
+      <Filter>vendor\curl\lib\out\build\x64-Debug (default)</Filter>
     </ClInclude>
     <ClInclude Include="vendor\curl\lib\parsedate.h">
       <Filter>vendor\curl\lib</Filter>

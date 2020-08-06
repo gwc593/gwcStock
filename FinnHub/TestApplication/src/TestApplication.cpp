@@ -1,5 +1,6 @@
 #include<FinnHub.h>
 #include<iostream>
+#include "MACD/MACD.h"
 
 /// !!!! READ ME FINNHUB REP!!!!!///
 // please run in Release mode to test speed, the for loop for populating std::vector<FinnHub::Symbol> symbols; ~ line 17 is inherantly very slow in debug mode because of the number of debug symbols. 
@@ -8,7 +9,7 @@
 
 //Testing profile
 bool testGetSymbols			= false; //Slow in debug mode
-bool testGetQuote			= true;
+bool testGetQuote			= false;
 bool testGetCompanyProfile2 = false;
 bool testGetNews			= false;
 bool testGetCompanyNews		= false;
@@ -18,7 +19,7 @@ bool testGetBasicFinancials	= false;
 bool testIPOCalendar		= false;
 bool testGetReccomendations	= false;
 bool testGetPriceTarget		= false;
-bool testHistoricData		= false;
+bool testHistoricData		= true;
 
 
 int main()
@@ -175,8 +176,22 @@ int main()
 	FinnHub::CandleArray historicCandles;
 
 	if (::testHistoricData) {
-		historicJSON = dataExchange.GetHistoricCandles("AAPL", FinnHubAPI::Period::day, start, end );
+		historicJSON = dataExchange.GetHistoricCandles("AAPL", FinnHubAPI::Period::min30, end - 3600*24*7*13, end );
 		historicCandles.Deserialise(historicJSON);
 	}
+	
+	auto data = historicCandles.GetData();
+
+	MACD HIST(data);
+	
+	std::vector<double> TEST = HIST.MACDHist();
+
+	for (auto element : TEST) {
+		std::cout << element;
+		std::cout << std::endl;
+	}
+
+
+
 	std::cout << "finished" << std::endl; //debug break here to see output.
 }

@@ -103,6 +103,7 @@ project "TestApplication"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"FinnHub/src",
 	}
 
