@@ -2,6 +2,19 @@
 #include"FinnHub.h"
 #include"Core/URLData.h"
 
+FinnHubAPI* FinnHubAPI::s_Instance = nullptr;
+
+void FinnHubAPI::Init(std::string key)
+{
+	if (key == "") {
+		std::cout << "Finnhub API key not initialised... exiting" << std::endl;
+		exit(1);
+	}
+
+	if (s_Instance == nullptr)
+		s_Instance = new FinnHubAPI(key);
+}
+
 FinnHubAPI::FinnHubAPI(std::string key)
 {
 	m_Key = "&token=" + key;

@@ -16,11 +16,7 @@ public:
 	/// <returns></returns>
 	FinnHubAPI();
 
-	/// <summary>
-	/// Constructor Overloaded to take API key, linked to your FinnHub account
-	/// </summary>
-	/// <returns></returns>
-	FinnHubAPI(std::string key);
+
 	~FinnHubAPI() = default;
 
 	/// <summary>
@@ -166,8 +162,17 @@ public:
 	/// <returns>JSON formatted std::string</returns>
 	std::string GetPriceTarget(const char* symbol);
 
-private:
+	static void Init(std::string key);
+	static FinnHubAPI* Get(){ return s_Instance; }
 
+private:
+	/// <summary>
+	/// Constructor Overloaded to take API key, linked to your FinnHub account
+	/// </summary>
+	/// <returns></returns>
+	FinnHubAPI(std::string key);
+	
+	static FinnHubAPI* s_Instance;
 
 	std::string m_Key;
 	std::string m_Base;
