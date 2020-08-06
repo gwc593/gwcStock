@@ -45,6 +45,9 @@
     <ClInclude Include="src\Core\Core.h">
       <Filter>src\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\JSON.h">
+      <Filter>src\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\URLData.h">
       <Filter>src\Core</Filter>
     </ClInclude>
@@ -54,7 +57,37 @@
     <ClInclude Include="src\FinnHub\FinnHubAPI.h">
       <Filter>src\FinnHub</Filter>
     </ClInclude>
+    <ClInclude Include="src\StockObjects\BasicFinancials.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
     <ClInclude Include="src\StockObjects\Candle.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\CandleArray.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\CompanyProfile.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\IPO.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\News.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\NewsSentiment.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\Peers.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\PriceTarget.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\Recommendations.h">
+      <Filter>src\StockObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StockObjects\Symbol.h">
       <Filter>src\StockObjects</Filter>
     </ClInclude>
     <ClInclude Include="src\gepch.h">
@@ -528,17 +561,6 @@
     <ClInclude Include="vendor\curl\lib\x509asn1.h">
       <Filter>vendor\curl\lib</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\JSON.h" />
-    <ClInclude Include="src\StockObjects\Symbol.h" />
-    <ClInclude Include="src\StockObjects\CompanyProfile.h" />
-    <ClInclude Include="src\StockObjects\News.h" />
-    <ClInclude Include="src\StockObjects\NewsSentiment.h" />
-    <ClInclude Include="src\StockObjects\Peers.h" />
-    <ClInclude Include="src\StockObjects\BasicFinancials.h" />
-    <ClInclude Include="src\StockObjects\IPO.h" />
-    <ClInclude Include="src\StockObjects\Recommendations.h" />
-    <ClInclude Include="src\StockObjects\PriceTarget.h" />
-    <ClInclude Include="src\StockObjects\CandleArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\URLData.cpp">
@@ -550,9 +572,11 @@
     <ClCompile Include="src\StockObjects\Candle.cpp">
       <Filter>src\StockObjects</Filter>
     </ClCompile>
+    <ClCompile Include="src\StockObjects\CandleArray.cpp">
+      <Filter>src\StockObjects</Filter>
+    </ClCompile>
     <ClCompile Include="src\gepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\StockObjects\CandleArray.cpp" />
   </ItemGroup>
 </Project>

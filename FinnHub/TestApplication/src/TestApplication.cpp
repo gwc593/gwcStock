@@ -3,12 +3,12 @@
 
 /// !!!! READ ME FINNHUB REP!!!!!///
 // please run in Release mode to test speed, the for loop for populating std::vector<FinnHub::Symbol> symbols; ~ line 17 is inherantly very slow in debug mode because of the number of debug symbols. 
-// if you want to run in debug, please set testGetSymbols to false.
+// if you want to run in debug, please set testGetSymbols to false. bslrd7vrh5rdb4ar76a0
 
 
 //Testing profile
 bool testGetSymbols			= false; //Slow in debug mode
-bool testGetQuote			= false;
+bool testGetQuote			= true;
 bool testGetCompanyProfile2 = false;
 bool testGetNews			= false;
 bool testGetCompanyNews		= false;
@@ -18,14 +18,14 @@ bool testGetBasicFinancials	= false;
 bool testIPOCalendar		= false;
 bool testGetReccomendations	= false;
 bool testGetPriceTarget		= false;
-bool testHistoricData		= true;
+bool testHistoricData		= false;
 
 
 int main()
 {
 	//Initialise FinnHub Exchange object
 	/////////////////////////////////////
-	FinnHubAPI dataExchange("bse5d8frh5rea8raakb0");
+	FinnHubAPI dataExchange("bslrd7vrh5rdb4ar76a0");
 
 	//get all available symbols from US stock exchange
 	//////////////////////////////////////////////////
@@ -50,8 +50,9 @@ int main()
 	FinnHub::Candle myCandle;
 
 	if (::testGetQuote) {
-		candleJSON = dataExchange.GetQuote("AML.L");
+		candleJSON = dataExchange.GetQuote("AAPL");
 		myCandle.Deserialise(candleJSON);
+		JSON::Print(candleJSON);
 	}
 
 
