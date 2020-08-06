@@ -37,6 +37,7 @@ void StockTicker::GenerateData(bool& work)
 			for (auto symbol : m_watchList.GetSymbols()) {
 				tmpCandle.Deserialise(dataExchange.GetQuote(symbol.c_str()));
 				m_StockData[symbol].push_back(tmpCandle);
+
 			}
 		}
 	}
