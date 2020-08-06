@@ -354,3 +354,5 @@ MigrationBackup/
 /gwcStocks/gwcStocks/*.vcxproj
 bin-int
 *.sln
+*.vcxproj
+*.filters
