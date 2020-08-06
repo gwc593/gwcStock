@@ -27,7 +27,7 @@ std::time_t getNow() { return std::chrono::system_clock::to_time_t(std::chrono::
 void StockTicker::GenerateData(bool& work)
 {
 	FinnHub::Candle tmpCandle;
-	FinnHubAPI dataExchange("bse5d8frh5rea8raakb0");
+	FinnHubAPI* dataExchange = FinnHubAPI::Get();
 	while (work) {
 		if ((getNow() - m_StartTime) > m_PollPeriod) {
 			std::lock_guard<std::mutex> lock(m_DBLock);
@@ -35,7 +35,7 @@ void StockTicker::GenerateData(bool& work)
 			std::cout << "updating stock prices" << std::endl;
 
 			for (auto symbol : m_watchList.GetSymbols()) {
-				tmpCandle.Deserialise(dataExchange.GetQuote(symbol.c_str()));
+				tmpCandle.Deserialise(dataExchange->GetQuote(symbol.c_str()));
 				m_StockData[symbol].push_back(tmpCandle);
 			}
 		}
