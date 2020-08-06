@@ -131,6 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Events\Event.h" />
+    <ClInclude Include="src\Events\EventCallback.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Events\Event.cpp" />
+    <ClCompile Include="src\Events\EventCallback.cpp" />
     <ClCompile Include="src\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
