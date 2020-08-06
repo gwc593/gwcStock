@@ -29,12 +29,13 @@ void BrokerAccount::PrintStatement()
 
 	std::cout << "########################################" << std::endl;
 	std::cout << "# Account Name: " << m_Alias << std::endl;
-	std::cout << "# Account Value: " << m_AccountValue << " USD" << std::endl;
-	std::cout << "# Available Balance: " << m_AvailableBalance << " USD" << std::endl;
+	std::cout << "# Account Value: $" << m_AccountValue << std::endl;
+	std::cout << "# Available Balance: $" << m_AvailableBalance << std::endl;
 	std::cout << "# Owned Shares: " << std::endl;
 
 	for (auto asset : m_OwnedShares) {
-		std::cout << "#     " << asset.first << ": " << std::to_string(asset.second) << " @ " << m_priceData[asset.first].GetCurrentPrice() <<" USD" << std::endl;
+		if(asset.second >0)
+			std::cout << "#     " << asset.first << ": " << std::to_string(asset.second) << " @ $" << m_priceData[asset.first].GetCurrentPrice() <<" = $" << m_priceData[asset.first].GetCurrentPrice()*(float)asset.second <<  std::endl;
 	}
 
 	std::cout << "########################################" << std::endl;
@@ -120,7 +121,7 @@ void BrokerAccount::CalculateAccountValue()
 		}
 	}
 
-	m_AccountValue = m_AccountValue;
+	m_AccountValue = m_AvailableBalance;
 	for (auto element : m_OwnedShares) {
 		m_AccountValue += m_priceData[element.first].GetCurrentPrice() * (float)element.second;
 	}

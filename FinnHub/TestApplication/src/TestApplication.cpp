@@ -41,6 +41,7 @@ int main()
 	BrokerAccount myAccount;
 	myAccount.SetAlias("Test Account");
 	myAccount.DepositFunds(5000);
+	myAccount.SetComission(0.0f);
 
 	//////////////////////////////////
 	//		Runtime Execution		//
@@ -49,7 +50,7 @@ int main()
 	//start thread to gather data
 	std::thread tickerWorker(&StockTicker::GenerateData, tickerObj, std::ref(work));
 	
-	//TODO- GWC account value is incorrect after trading.
+
 	myAccount.PrintStatement();
 	myAccount.Buy("AAPL",3);
 	myAccount.PrintStatement();
