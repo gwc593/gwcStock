@@ -1,4 +1,5 @@
 #pragma once
+#include"Core.h"
 #include<stdio.h>
 #include<iostream>
 #include<vector>
