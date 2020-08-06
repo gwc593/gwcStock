@@ -38,6 +38,32 @@ std::string FinnHubAPI::GetQuote(const char* symbol)
 	return result;
 }
 
+
+std::string FinnHubAPI::GetHistoricCandles(const char* symbol, Period period, std::time_t start, std::time_t end)
+{
+	std::string action = "/stock/candle?symbol=";
+	///stock/candle?symbol=AAPL&resolution=1&from=1572651390&to=1572910590
+	gwcStock::URLData* url = gwcStock::URLData::GetInstance();
+	std::string prd;
+
+	switch (period) {
+	case Period::min1:	prd = "1";	break;
+	case Period::min5:	prd = "5";	break;
+	case Period::min15: prd = "15"; break;
+	case Period::min30: prd = "30"; break;
+	case Period::min60: prd = "60"; break;
+	case Period::day:	prd = "D";	break;
+	case Period::week:	prd = "W";	break;
+	case Period::month: prd = "M";	break;
+	}
+
+	std::string req = m_Base + action + symbol + std::string("&resolution=") + prd + "&from=" + std::to_string(start) + "&to=" + std::to_string(end) +  m_Key;
+
+	std::string result = url->CurlURL(req);
+
+	return result;
+}
+
 std::string FinnHubAPI::GetSymbols(const char* exchange)
 {
 	std::string action = "/stock/symbol?exchange=";
